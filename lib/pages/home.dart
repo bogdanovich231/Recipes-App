@@ -9,7 +9,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Фоновое изображение
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
