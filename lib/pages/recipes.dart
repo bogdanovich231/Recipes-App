@@ -4,6 +4,8 @@ import '../api/fetch_mealbyname.dart';
 import '../model/meal_block.dart';
 import 'package:recipes/widgets/search_bar.dart' as custom;
 
+import 'recipe_detail.dart';
+
 class RecipesPage extends StatefulWidget {
   const RecipesPage({super.key});
 
@@ -64,44 +66,54 @@ class _RecipesPageState extends State<RecipesPage> {
   }
 
   Widget MealCard(Meal meal) {
-    return Container(
-      width: 200,
-      height: 250,
-      margin: EdgeInsets.all(8),
-      child: Card(
-        elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => RecipeDetailPage(mealId: meal.idMeal),
+          ),
+        );
+      },
+      child: Container(
+        width: 200,
+        height: 250,
+        margin: EdgeInsets.all(8),
+        child: Card(
+          elevation: 5,
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ClipOval(
-                child: Image.network(
-                  meal.imageUrl,
-                  fit: BoxFit.cover,
-                  height: 100,
-                  width: 100,
-                ),
-              ),
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  meal.name,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ClipOval(
+                  child: Image.network(
+                    meal.imageUrl,
+                    fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
                   ),
-                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    meal.name,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
