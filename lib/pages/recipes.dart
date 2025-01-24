@@ -33,11 +33,21 @@ class _RecipesPageState extends State<RecipesPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text(
-          'Recipes',
-          style: TextStyle(color: Colors.black),
-        ),
         leading: SizedBox.shrink(),
+        title: null,
+        flexibleSpace: Align(
+          alignment: Alignment.center,
+          child: Container(
+            child: Text(
+              'Recipes',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 30,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ),
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(

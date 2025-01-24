@@ -15,13 +15,11 @@ class SearchBar extends StatelessWidget {
           hintText: 'Search recipes...',
           prefixIcon: Icon(Icons.search),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: const Color.fromARGB(255, 214, 193, 1), width: 2.0),
             borderRadius: BorderRadius.circular(10.0),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-                color: const Color.fromARGB(255, 241, 225, 72), width: 2.0),
+                color: const Color.fromARGB(255, 230, 230, 230), width: 2.0),
             borderRadius: BorderRadius.circular(10.0),
           ),
         ),
